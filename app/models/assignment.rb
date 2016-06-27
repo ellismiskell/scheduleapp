@@ -2,7 +2,7 @@ class Assignment < ActiveRecord::Base
   belongs_to :courses
   belongs_to :user
 
-  def send_notifs
+  def self.send_notifs
     a = self.where("date_due between ? and ?", Time.now, Time.now + 12.hours).where(reminder_type: 'homework')
     a.each do |b|
       NotificationMailer.send_reminder_email.deliver_now
