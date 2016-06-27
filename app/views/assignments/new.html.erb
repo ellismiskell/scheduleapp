@@ -1,0 +1,18 @@
+<h1>Assignments#new</h1>
+<p>Find me in app/views/assignments/new.html.erb</p>
+
+<%= form_for @assignment do |f|%>
+    What class is this for?
+    <%=select_tag "Course", options_for_select(Course.where(user_id: current_user.id).pluck(:name, :id))%>
+    What do you have due? <%= f.text_field :content%><br/>
+    When is it due? (YYYY-MM-DD)<%= f.text_field :date_due%><br/>
+    What type of assignment is this?
+    <%=select_tag "reminder_type", options_for_select([["Homework (Reminder the night before and the morning of)","homework"], ["Something to bring (Reminds you the morning of)","bring"]])%>
+    <!-- # <select><%=:reminder_type%>What type of assignment is this?
+    #   <option value="homework">Homework (Reminder the night before and the morning of)</option>
+    #   <option value="bring">Something to bring (Reminds you the morning of)</option>
+    # </select> -->
+    <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
+    Create Assignment
+    <%end%>
+<%end%>

@@ -1,0 +1,22 @@
+<h1>Your assignments</h1>
+
+<div class = "table-responsive">
+<table class = "table table-striped">
+  <thead>
+    <tr>
+      <th> Course </th>
+      <th> Date Due </th>
+      <th> What is due </th>
+    </tr>
+  </thead>
+
+  <% @user_assignments.each do |x| %>
+    <tr>
+      <td><%= Course.where(:id => x.course_id).pluck(:name).first%></td>
+      <td><%= x.date_due%></td>
+      <td><%= x.content%></td>
+    </tr>
+  <% end %>
+</table>
+</div>
+<p><%= link_to "Create Assignment", "/assignments/new" %></p>

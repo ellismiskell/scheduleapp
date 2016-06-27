@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  class_id: 1
+  content: MyString
+  date_due: 2016-06-22 17:42:19
+  reminder_type: MyString
+
+two:
+  class_id: 1
+  content: MyString
+  date_due: 2016-06-22 17:42:19
+  reminder_type: MyString

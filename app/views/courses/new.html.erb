@@ -1,0 +1,15 @@
+<h1>Courses#new</h1>
+<p>Find me in app/views/courses/new.html.erb</p>
+<%= form_for @course do |f|%>
+  what is this course called?<%=f.text_field :name%>
+  <%=f.hidden_field :user_id, :value => current_user.id%>
+  When does this course meet?
+  Monday<input type="checkbox" name="tag_ids[]" value= 2 />
+  Tuesday<input type="checkbox" name="tag_ids[]" value= 4 />
+  Wednesday<input type="checkbox" name="tag_ids[]" value= 8 />
+  Thursday<input type="checkbox" name="tag_ids[]" value= 16 />
+  Friday<input type="checkbox" name="tag_ids[]" value= 32 />
+  <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
+  Create Course
+  <%end%>
+<%end%>
